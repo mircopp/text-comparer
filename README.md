@@ -1,1 +1,1 @@
-"# text-comparer" 
+# text-comparer
