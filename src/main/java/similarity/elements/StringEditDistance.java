@@ -2,13 +2,16 @@ package similarity.elements;
 
 import org.apache.airavata.samples.LevenshteinDistanceService;
 import org.hibernate.validator.cfg.defs.LengthDef;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Mirco on 30.09.2016.
  */
-public class StringEditDistance implements ElementSimilarity {
+public class StringEditDistance extends WordSimilarity {
 
     LevenshteinDistanceService editDistance;
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     public StringEditDistance(){
 
@@ -29,5 +32,10 @@ public class StringEditDistance implements ElementSimilarity {
         else {
             throw new IllegalArgumentException("Input must be String!");
         }
+    }
+
+    @Override
+    public String getComparingMethod() {
+        return "Levenshtein Edit Distance";
     }
 }

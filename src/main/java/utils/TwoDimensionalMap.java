@@ -1,5 +1,8 @@
 package utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +11,9 @@ import java.util.Map;
  */
 public class TwoDimensionalMap <K,V>{
 
-    Map<K, Map <K, V>> map;
+    private Map<K, Map <K, V>> map;
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     public TwoDimensionalMap (){
         map = new HashMap<K, Map<K, V>>();

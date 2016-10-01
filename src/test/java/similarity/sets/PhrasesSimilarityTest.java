@@ -1,7 +1,8 @@
-package similarity.phrases;
+package similarity.sets;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.junit.Test;
+import similarity.elements.StringEditDistance;
 import utils.TwoDimensionalMap;
 
 import static org.junit.Assert.*;
@@ -27,9 +28,9 @@ public class PhrasesSimilarityTest {
 
         String first = "Hallo ich bins!";
         String second = "Wie geht es dir?";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         TwoDimensionalMap <String, Double> matrix = sim.getMatrix();
-        String [] union = (String[]) ArrayUtils.addAll(sim.getFirstPhrase(), sim.getSecondPhrase());
+        String [] union = (String[]) ArrayUtils.addAll(sim.getFirstPhraseArray(), sim.getSecondPhraseArray());
         for (int i = 0; i<union.length; i++){
             assertEquals("Diagonal axis should be egual 1.0!", matrix.getValue(union[i], union[i]), 1.0, DELTA);
         }
@@ -39,9 +40,9 @@ public class PhrasesSimilarityTest {
 
         String first = "Sergio Jiménez Vargas";
         String second = "Cergio Gimenez Bargaz";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         TwoDimensionalMap <String, Double> matrix = sim.getMatrix();
-        String [] union = (String[]) ArrayUtils.addAll(sim.getFirstPhrase(), sim.getSecondPhrase());
+        String [] union = (String[]) ArrayUtils.addAll(sim.getFirstPhraseArray(), sim.getSecondPhraseArray());
         for (int i = 0; i<union.length; i++){
             assertEquals("Diagonal axis should be egual 1.0!", matrix.getValue(union[i], union[i]), 1.0, DELTA);
         }
@@ -52,7 +53,7 @@ public class PhrasesSimilarityTest {
 
         String first = "Sergio Jiménez Vargas";
         String second = "Cergio Gimenez Bargaz";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         double softCardinalityFirstPhrase = sim.getSoftCardinalityFirstPhrase();
         assertEquals("Should be 2.5, but was " + softCardinalityFirstPhrase, softCardinalityFirstPhrase, 2.5, DELTA );
         double softCardinalitySecondPhrase = sim.getSoftCardinalitySecondPhrase();
@@ -64,7 +65,7 @@ public class PhrasesSimilarityTest {
 
         String first = "Hallo ich bins";
         String second = "Hallo ich bins";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         double softCardinalityFirstPhrase = sim.getSoftCardinalityFirstPhrase();
         double softCardinalitySecondPhrase = sim.getSoftCardinalitySecondPhrase();
         assertEquals("Should be equal, but was " + softCardinalityFirstPhrase + " and " + softCardinalitySecondPhrase, softCardinalityFirstPhrase, softCardinalitySecondPhrase, DELTA );
@@ -76,7 +77,7 @@ public class PhrasesSimilarityTest {
 
         String first = "Sergio Jiménez Vargas";
         String second = "Cergio Gimenez Bargaz";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         double union = sim.getSoftCardinalityUnion();
         assertEquals("Should be 2.687, but was " + union, union, 2.687, DELTA );
 
@@ -87,7 +88,7 @@ public class PhrasesSimilarityTest {
 
         String first = "Sergio Jiménez Vargas";
         String second = "Cergio Gimenez Bargaz";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         double intersection = sim.getSoftCardinalityIntersection();
         assertEquals("Should be 2.115, but was " + intersection, intersection, 2.115, DELTA );
 
@@ -98,7 +99,7 @@ public class PhrasesSimilarityTest {
 
         String first = "Sergio Jiménez Vargas";
         String second = "Cergio Gimenez Bargaz";
-        PhrasesSimilarity sim = new PhrasesSimilarity(first, second);
+        PhrasesSimilarity sim = new PhrasesSimilarity(first, second, StringEditDistance.class);
         double dice = sim.getDiceCoefficientSimilarity();
         assertEquals("Should be 0.880, but was " + dice, dice, 0.880, DELTA );
 
