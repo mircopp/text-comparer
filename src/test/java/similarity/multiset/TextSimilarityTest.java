@@ -36,6 +36,7 @@ public class TextSimilarityTest {
                 "die verwendete Sekundärliteratur (Zitatsplagiat).";
 
         TextSimilarity sim = new TextSimilarity(text1, text2);
+        assertThat(String.format("Should be greater than 0.8, but was %f.", sim.getDiceCoefficientSimilarity()), sim.getDiceCoefficientSimilarity(), greaterThan(0.8));
         System.out.println(sim.getDiceCoefficientSimilarity());
 
     }
@@ -93,7 +94,7 @@ public class TextSimilarityTest {
                 "Sie löste die Schuhwichse ab.";
 
         TextSimilarity sim = new TextSimilarity(text1, text2);
-        assertThat(String.format("Should be less than 0.8 but was %f.", sim.getDiceCoefficientSimilarity()), sim.getDiceCoefficientSimilarity(), lessThan(0.8));
+        assertThat(String.format("Should be less than 0.7 but was %f.", sim.getDiceCoefficientSimilarity()), sim.getDiceCoefficientSimilarity(), lessThan(0.8));
         System.out.println(sim.getDiceCoefficientSimilarity());
 
     }

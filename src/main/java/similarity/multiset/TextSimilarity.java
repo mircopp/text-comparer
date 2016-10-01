@@ -41,10 +41,10 @@ public class TextSimilarity {
             }
         }
 
-        softCardinalityFirstText = SoftCardinality.calculateSoftCardinality(firstTextArray, matrix, 4.5);
-        softCardinalitySecondText = SoftCardinality.calculateSoftCardinality(secondTextArray, matrix, 4.5);
+        softCardinalityFirstText = SoftCardinality.calculateSoftCardinality(firstTextArray, matrix, 6);
+        softCardinalitySecondText = SoftCardinality.calculateSoftCardinality(secondTextArray, matrix, 6);
         //really union or better union without duplicates?
-        softCardinalityTextUnion = SoftCardinality.calculateSoftCardinality(union, matrix, 4.5);
+        softCardinalityTextUnion = SoftCardinality.calculateSoftCardinality(union, matrix, 6);
     }
 
     public TwoDimensionalMap<String, Double> getMatrix() {
