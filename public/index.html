@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Similarity Calculator</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script type="application/javascript" src="js/main.js"></script>
+
+    <link rel="stylesheet" href="css/custom.css"/>
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Text comparison</h1>
+        <p>Similarity, measures, adjustment</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Text 1</div>
+                <div class="fillBody" style="height: 500px; width: 100%">
+                    <textarea class="fill" id="text1"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Text 2</div>
+                <div class="fillBody" style="height: 500px; width: 100%">
+                    <textarea class="fill" id="text2"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <button type="button" class="btn btn-primary" onclick="getSimilarity()">Send</button>
+    </div>
+
+    <div class="row">
+        <div id="result" class="alert alert-success" style="display: none">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

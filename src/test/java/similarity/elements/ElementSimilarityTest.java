@@ -10,8 +10,7 @@ import static org.hamcrest.Matchers.*;
  */
 public class ElementSimilarityTest {
 
-    private static final double DELTA = 1e-15;
-
+    private static final double DELTA = 1e-3;
 
     @Test
     public void testGetElementSimilarity(){
